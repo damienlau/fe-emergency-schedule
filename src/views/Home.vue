@@ -1,9 +1,11 @@
 <template>
-  <router-view
-    v-for="route in routeConfig"
-    :key="route.key"
-    :name="route.key"
-  ></router-view>
+  <a-layout class="lau-layout">
+    <router-view
+      v-for="route in routeConfig"
+      :key="route.key"
+      :name="route.key"
+    ></router-view>
+  </a-layout>
 </template>
 
 <script>

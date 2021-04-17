@@ -3,14 +3,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import store from "../store";
 
 const routes = [
-  // {
-  //   path: "/",
-  //   components: {
-  //     FaceTime: () => import("../views/FaceTime.vue"),
-  //     Launchpad: () => import("../views/Launchpad.vue"),
-  //     Toolkit: () => import("../views/Toolkit.vue"),
-  //   },
-  // },
   {
     path: "/",
     name: "Home",

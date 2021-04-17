@@ -1,17 +1,19 @@
 <template>
-  <lau-header></lau-header>
-  <a-layout-content class="login">
-    <lau-form :forms="formConfig" :rules="formRulesConfig">
-      <template #button>
-        <a-button
-          block
-          type="primary"
-          @click="() => $store.commit('hasLogin', formState)"
-          >登录</a-button
-        >
-      </template>
-    </lau-form>
-  </a-layout-content>
+  <a-layout class="lau-layout">
+    <lau-header></lau-header>
+    <a-layout-content class="login">
+      <lau-form :forms="formConfig" :rules="formRulesConfig">
+        <template #button>
+          <a-button
+            block
+            type="primary"
+            @click="() => $store.commit('hasLogin', formState)"
+            >登录</a-button
+          >
+        </template>
+      </lau-form>
+    </a-layout-content>
+  </a-layout>
 </template>
 
 <script>
