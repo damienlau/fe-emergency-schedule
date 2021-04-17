@@ -1,0 +1,30 @@
+@lau-layout-prefix-cls: ~'@{lau-prefix}-layout';
+
+@layout-body-background: @lau-background;
+
+@layout-header-background: transparent;
+@layout-header-height: 90px;
+@layout-header-padding: 0 20px;
+
+@layout-trigger-background: transparent;
+
+// Layout Styles
+.@{lau-layout-prefix-cls} {
+	height: 100vh;
+
+	&-header {
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-image: url(../image/lau_head_bg.png);
+
+		.title {
+			font-size: 32px;
+			font-weight: bold;
+			color: @white;
+			text-align: center;
+			margin-bottom: 0;
+			letter-spacing: 4px;
+			text-shadow: 0px 0px 4px #0b1d38;
+		}
+	}
+}

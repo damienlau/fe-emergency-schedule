@@ -1,3 +1,5 @@
 <template>
-  <h1>Hello Dottmed!</h1>
+  <a-layout class="lau-layout">
+    <router-view></router-view>
+  </a-layout>
 </template>
