@@ -15,6 +15,16 @@ const routes = [
     path: "/",
     name: "Home",
     component: () => import("../views/Home.vue"),
+    children: [
+      {
+        path: "",
+        components: {
+          facetime: () => import("../views/Launchpad/FaceTime.vue"),
+          launchpad: () => import("../views/Launchpad/index.vue"),
+          toolkit: () => import("../views/Launchpad/Toolkit.vue"),
+        },
+      },
+    ],
   },
   {
     path: "/login",

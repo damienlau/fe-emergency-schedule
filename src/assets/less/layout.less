@@ -2,7 +2,7 @@
 
 @layout-body-background: @lau-background;
 
-@layout-header-background: transparent;
+@layout-header-background: fade(#5879c6, 10);
 @layout-header-height: 90px;
 @layout-header-padding: 0 20px;
 
@@ -13,9 +13,12 @@
 	height: 100vh;
 
 	&-header {
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-image: url(../image/lau_head_bg.png);
+		&-background {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-color: transparent;
+			background-image: url(../image/lau_head_bg.png);
+		}
 
 		.title {
 			font-size: 32px;
@@ -26,5 +29,9 @@
 			letter-spacing: 4px;
 			text-shadow: 0px 0px 4px #0b1d38;
 		}
+	}
+
+	&-content {
+		padding: 20px;
 	}
 }

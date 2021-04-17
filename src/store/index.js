@@ -12,8 +12,10 @@ export default createStore({
   mutations: {
     hasLogin(state, user) {
       Login(user).then((info) => {
-        Cookies.set("user", JSON.stringify(info));
-        router.push({ name: "Home", params: { username: info.userName } });
+        if (info) {
+          Cookies.set("user", JSON.stringify(info));
+          router.push({ name: "Home", params: { username: info.userName } });
+        }
       });
     },
   },

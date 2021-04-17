@@ -1,16 +1,31 @@
 <template>
-  <lau-header></lau-header>
-  <a-layout>
-    <a-layout-sider></a-layout-sider>
-    <a-layout-content></a-layout-content>
-  </a-layout>
+  <router-view
+    v-for="route in routeConfig"
+    :key="route.key"
+    :name="route.key"
+  ></router-view>
 </template>
 
 <script>
-import LauHeader from "../components/Header.vue";
-
+import { readonly } from "@vue/reactivity";
 export default {
-  name: "Home",
-  components: { LauHeader },
+  setup() {
+    const routeConfig = readonly([
+      // {
+      //   key: "facetime",
+      //   label: "视频通讯",
+      // },
+      // {
+      //   key: "map",
+      //   label: "指挥调度",
+      // },
+      {
+        key: "toolkit",
+        label: "工具箱",
+      },
+    ]);
+
+    return { routeConfig };
+  },
 };
 </script>

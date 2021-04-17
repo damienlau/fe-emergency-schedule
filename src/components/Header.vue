@@ -1,5 +1,8 @@
 <template>
-  <a-layout-header class="lau-layout-header">
+  <a-layout-header
+    class="lau-layout-header"
+    :class="{ 'lau-layout-header-background': hasBackground }"
+  >
     <slot name="logo"></slot>
     <slot name="title">
       <h1 class="title">{{ title }}</h1>
@@ -13,6 +16,11 @@ export default {
   name: "LauHeader",
   props: {
     title: { type: String, require: false, default: "应急指挥调度系统" },
+    hasBackground: {
+      type: Boolean,
+      require: false,
+      default: false,
+    },
   },
 };
 </script>
