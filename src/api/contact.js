@@ -6,7 +6,7 @@ export function createContactMember(member) {
 }
 
 // 获取全部救援人员
-export function getContactMember() {
+export function getContactMembers() {
   return request.get("/personnel/info/all");
 }
 
@@ -16,6 +16,6 @@ export function createContactTeam(group) {
 }
 
 // 获取全部救援小组
-export function getContactTeam() {
+export function getContactTeams() {
   return request.get("/rescue/group/all");
 }

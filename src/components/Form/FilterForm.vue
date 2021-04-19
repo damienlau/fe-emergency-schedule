@@ -16,9 +16,33 @@
       <template #label>
         {{ form.label }}
       </template>
+      <!-- 选择框 -->
+      <a-select
+        v-if="form.type === 'select'"
+        v-model:value="formState[form.key]"
+        size="large"
+        allow-clear
+        :placeholder="`请选择${form.label}`"
+        @change="handleChange(formState)"
+      >
+        <a-select-option v-for="option in form.selectOptions" :key="option.id">
+          {{ option.groupName }}
+        </a-select-option>
+      </a-select>
+      <!-- 日期选择框 -->
+      <a-range-picker
+        v-else-if="form.type === 'rangePicker'"
+        v-model:value="formState[form.key]"
+        allow-clear
+        show-time
+        format="YYYY/MM/DD HH:mm:ss"
+        @change="handleChange(formState)"
+      />
       <!-- 输入框 -->
       <a-input
+        v-else
         v-model:value="formState[form.key]"
+        size="large"
         :placeholder="`请输入${form.label}`"
         allow-clear
         :type="form.type"
@@ -64,6 +88,7 @@ export default {
 
     // 定义表单数据改变后回调事件
     const handleChange = inject("getFormData");
+    // const handleChange = () => {};
 
     return {
       formRef,

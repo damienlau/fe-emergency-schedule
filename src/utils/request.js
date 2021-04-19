@@ -45,6 +45,11 @@ instance.interceptors.response.use(
         content: res.message || "响应拦截：网络异常，请检查网络后重试",
         key: "listener",
       });
+
+      if (res.code === 402) {
+        store.state.isLogin = false;
+        Cookies.remove("authorization");
+      }
     } else {
       if (!!hasAuth) {
         store.state.isLogin = true;
