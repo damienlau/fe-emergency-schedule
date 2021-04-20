@@ -1,5 +1,13 @@
 <template>
-  <a-form ref="formRef" class="lau-form" :model="formState" hide-required-mark>
+  <a-form
+    ref="formRef"
+    label-align="right"
+    :label-col="{ span: 8 }"
+    :wrapper-col="{ span: 11 }"
+    class="lau-form"
+    :model="formState"
+    hide-required-mark
+  >
     <a-form-item
       v-for="form in forms"
       :key="form.key"
@@ -11,8 +19,22 @@
       <template #label>
         {{ form.label }}
       </template>
+      <!-- 选择框 -->
+      <a-select
+        v-if="form.type === 'select'"
+        v-model:value="formState[form.key]"
+        size="large"
+        allow-clear
+        :placeholder="`请选择${form.label}`"
+        @change="handleChange(formState)"
+      >
+        <a-select-option v-for="option in form.selectOptions" :key="option.id">
+          {{ option.groupName || option.label }}
+        </a-select-option>
+      </a-select>
       <!-- 输入框 -->
       <a-input
+        v-else
         v-model:value="formState[form.key]"
         :placeholder="`请输入${form.label}`"
         allow-clear
@@ -31,9 +53,9 @@
       </a-input>
     </a-form-item>
     <!-- 操作区 -->
-    <a-form>
+    <a-form-item :style="{ textAlign: 'center' }" :wrapper-col="{ span: 24 }">
       <slot name="button"></slot>
-    </a-form>
+    </a-form-item>
   </a-form>
 </template>
 

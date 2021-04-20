@@ -12,7 +12,7 @@ const routes = [
         path: "",
         components: {
           facetime: () => import("../views/Launchpad/FaceTime.vue"),
-          launchpad: () => import("../views/Launchpad/index.vue"),
+          map: () => import("../views/Launchpad/index.vue"),
           toolkit: () => import("../views/Launchpad/Toolkit.vue"),
         },
       },

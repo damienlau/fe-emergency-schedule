@@ -1,6 +1,8 @@
 <template>
-  <lau-header has-background></lau-header>
-  <a-layout-content>1</a-layout-content>
+  <a-layout class="facetime">
+    <lau-header has-background></lau-header>
+    <a-layout-content>1</a-layout-content>
+  </a-layout>
 </template>
 
 <script>

@@ -1,0 +1,27 @@
+@lau-card-prefix-cls: ~'@{lau-prefix}-card';
+
+@card-background: fade(#fff, 5);
+@card-radius: @border-radius-base * 2;
+
+// Card Styles
+.@{lau-card-prefix-cls} {
+	height: 223px;
+	margin-bottom: 20px !important;
+
+	&-dashed {
+		border-style: dashed !important;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&-demo {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@import 'reset';

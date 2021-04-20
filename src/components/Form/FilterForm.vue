@@ -26,7 +26,7 @@
         @change="handleChange(formState)"
       >
         <a-select-option v-for="option in form.selectOptions" :key="option.id">
-          {{ option.groupName }}
+          {{ option.groupName || option.label }}
         </a-select-option>
       </a-select>
       <!-- 日期选择框 -->

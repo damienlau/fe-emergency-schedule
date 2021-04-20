@@ -24,7 +24,7 @@ import LauTable from "../../components/Table.vue";
 import LauFilterForm from "../../components/Form/FilterForm.vue";
 
 export default {
-  name: "Toolkit",
+  name: "ToolkitSurveyInfo",
   components: { LauTab, LauTable, LauFilterForm },
   setup() {
     // 定义标签页配置数据
@@ -69,14 +69,14 @@ export default {
           },
           {
             title: "日期",
-            dataIndex: "talkStartTime",
-            key: "talkStartTime",
+            dataIndex: "createTime",
+            key: "createTime",
             width: 340,
           },
           {
             title: "操作",
-            dataIndex: "personName",
-            key: "personName",
+            dataIndex: "",
+            key: "",
           },
         ],
       },
@@ -115,8 +115,8 @@ export default {
           },
           {
             title: "操作",
-            dataIndex: "personName",
-            key: "personName",
+            dataIndex: "",
+            key: "",
           },
         ],
       },
@@ -185,13 +185,15 @@ export default {
 
     // 定义筛选表单输入事件
     const handleSearch = (formData) => {
-      formData.startDate = moment(formData.filterDate[0]).format(
-        "YYYY-MM-DD HH:mm:ss"
-      );
-      formData.endDate = moment(formData.filterDate[1]).format(
-        "YYYY-MM-DD HH:mm:ss"
-      );
-      formData.filterDate = "";
+      if (formData.filterDate) {
+        formData.startDate = moment(formData.filterDate[0]).format(
+          "YYYY-MM-DD HH:mm:ss"
+        );
+        formData.endDate = moment(formData.filterDate[1]).format(
+          "YYYY-MM-DD HH:mm:ss"
+        );
+        formData.filterDate = "";
+      }
 
       handleGetData(formData);
     };
@@ -213,7 +215,7 @@ export default {
     const handleGetData = (filter) => {
       // 查询接口获取所有勘查信息记录
       getSurveyInfos(filter).then((result) => {
-        tableData.value = result;
+        tableData.value = result.content;
       });
     };
 

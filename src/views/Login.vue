@@ -1,6 +1,6 @@
 <template>
   <a-layout class="lau-layout">
-    <lau-header></lau-header>
+    <lau-header has-background></lau-header>
     <a-layout-content class="login">
       <lau-form :forms="formConfig" :rules="formRulesConfig">
         <template #button>

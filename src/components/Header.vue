@@ -3,11 +3,9 @@
     class="lau-layout-header"
     :class="{ 'lau-layout-header-background': hasBackground }"
   >
-    <slot name="logo"></slot>
-    <slot name="title">
+    <slot name="content">
       <h1 class="title">{{ title }}</h1>
     </slot>
-    <slot name="extra"></slot>
   </a-layout-header>
 </template>
 
@@ -24,3 +22,10 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+.title {
+  flex: 1 1 auto;
+  text-align: center;
+}
+</style>
